@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <title>Daily Dean Blues Instrumentals</title>
-    <link>https://kyledeanml.github.io/daily-dean-blues-instrumentals</link>
+    <link>https://kyledeanml.github.io/RSSpad</link>
     <language>en-us</language>
     <description>Daily streaming blues instrumentals video &amp; audio podcast feed.</description>
-    <lastBuildDate>Wed, 11 Nov 2026 08:12:57 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 08:34:15 GMT</lastBuildDate>
     <generator>RSSpad</generator>
     <itunes:author>Dean</itunes:author>
-    <itunes:image href="https://kyledeanml.github.io/daily-dean-blues-instrumentals/cover.jpg" />
+    <itunes:image href="https://kyledeanml.github.io/RSSpad/cover.jpg" />
     <image>
-      <url>https://kyledeanml.github.io/daily-dean-blues-instrumentals/cover.jpg</url>
+      <url>https://kyledeanml.github.io/RSSpad/cover.jpg</url>
       <title>Daily Dean Blues Instrumentals</title>
-      <link>https://kyledeanml.github.io/daily-dean-blues-instrumentals</link>
+      <link>https://kyledeanml.github.io/RSSpad</link>
     </image>
     <itunes:category text="Music" />
     <itunes:explicit>false</itunes:explicit>
@@ -20,16 +20,16 @@
       <title>Blue Grunge</title>
       <description>Daily track selection: Blue Grunge</description>
       <pubDate>Wed, 11 Nov 2026 04:52:50 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/daily-dean-blues-instrumentals/releases/download/episodes/Blue.Grunge.mp4" length="126521615" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/daily-dean-blues-instrumentals/releases/download/episodes/Blue.Grunge.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Blue.Grunge.mp4" length="126521615" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Blue.Grunge.mp4</guid>
       <itunes:duration>00:02:41</itunes:duration>
     </item>
     <item>
       <title>24 Hours</title>
       <description>Daily track selection: 24 Hours</description>
       <pubDate>Wed, 11 Nov 2026 04:05:26 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/daily-dean-blues-instrumentals/releases/download/episodes/24.Hours.mp4" length="136852625" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/daily-dean-blues-instrumentals/releases/download/episodes/24.Hours.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/24.Hours.mp4" length="136852625" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/24.Hours.mp4</guid>
       <itunes:duration>00:03:00</itunes:duration>
     </item>
   </channel>

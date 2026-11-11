@@ -1,13 +1,13 @@
 {
   "author": "Dean",
   "auto_generate": true,
-  "base_url": "https://kyledeanml.github.io/daily-dean-blues-instrumentals",
+  "base_url": "https://kyledeanml.github.io/RSSpad",
   "category": "Music",
   "description": "Daily streaming blues instrumentals video & audio podcast feed.",
   "explicit": false,
   "github_release_tag": "episodes",
-  "github_repo": "kyledeanml/daily-dean-blues-instrumentals",
-  "image_url": "https://kyledeanml.github.io/daily-dean-blues-instrumentals/cover.jpg",
+  "github_repo": "kyledeanml/RSSpad",
+  "image_url": "https://kyledeanml.github.io/RSSpad/cover.jpg",
   "language": "en-us",
   "mp3_bitrate": "192k",
   "output_name": "feed.xml",
@@ -16,11 +16,11 @@
   "tracks": {
     "24 Hours.mp4": {
       "pub": 1794369926.4708655,
-      "url": "https://github.com/kyledeanml/daily-dean-blues-instrumentals/releases/download/episodes/24.Hours.mp4"
+      "url": "https://github.com/kyledeanml/RSSpad/releases/download/episodes/24.Hours.mp4"
     },
     "Blue Grunge.mp4": {
       "pub": 1794372770.602781,
-      "url": "https://github.com/kyledeanml/daily-dean-blues-instrumentals/releases/download/episodes/Blue.Grunge.mp4"
+      "url": "https://github.com/kyledeanml/RSSpad/releases/download/episodes/Blue.Grunge.mp4"
     }
   }
 }

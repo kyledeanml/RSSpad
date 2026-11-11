@@ -2,8 +2,8 @@
 
 Video podcast feed and **RSSpad** studio (part of the **PythonPad** application suite for Linux Mint Cinnamon).
 
-- **Live RSS Feed:** `https://kyledeanml.github.io/daily-dean-blues-instrumentals/feed.xml`
-- **Web Player Landing Page:** `https://kyledeanml.github.io/daily-dean-blues-instrumentals/`
+- **Live RSS Feed:** `https://kyledeanml.github.io/RSSpad/feed.xml`
+- **Web Player Landing Page:** `https://kyledeanml.github.io/RSSpad/`
 
 ## Daily Workflow with RSSpad
 
