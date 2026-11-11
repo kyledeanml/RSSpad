@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ PythonPad Neon Theme
+ Deep dark mode with brilliant white text and neon blue accents
+-->
+<style-scheme id="pythonpad-neon" _name="Neon Blue &amp; White" version="1.0">
+  <author>PythonPad</author>
+  <_description>Dark mode theme with white text and neon blue hues</_description>
+
+  <!-- Color Palette -->
+  <color name="bg_dark"               value="#0a0e1a"/>
+  <color name="bg_gutter"             value="#070a14"/>
+  <color name="bg_current_line"       value="#0f1d36"/>
+  <color name="bg_selection"          value="#034b75"/>
+  <color name="bg_bracket"            value="#0284c7"/>
+  <color name="bg_search"             value="#083344"/>
+
+  <!-- Text & Neon Accents -->
+  <color name="white_text"            value="#ffffff"/>
+  <color name="frost_white"           value="#f0f9ff"/>
+  <color name="ice_white"             value="#e0f2fe"/>
+  <color name="neon_cyan"             value="#00f0ff"/>
+  <color name="neon_blue"             value="#00d4ff"/>
+  <color name="neon_sky"              value="#38bdf8"/>
+  <color name="neon_ice"              value="#67e8f9"/>
+  <color name="neon_teal"             value="#22d3ee"/>
+  <color name="neon_soft_blue"        value="#7dd3fc"/>
+  <color name="cool_slate"            value="#64748b"/>
+  <color name="muted_slate"           value="#475569"/>
+  <color name="syntax_error"          value="#f43f5e"/>
+
+  <!-- Global Editor Styles -->
+  <style name="text"                  foreground="white_text" background="bg_dark"/>
+  <style name="selection"             foreground="white_text" background="bg_selection"/>
+  <style name="cursor"                foreground="neon_cyan"/>
+  <style name="current-line"          background="bg_current_line"/>
+  <style name="line-numbers"          foreground="neon_sky" background="bg_gutter"/>
+  <style name="draw-spaces"           foreground="muted_slate"/>
+  <style name="right-margin"          foreground="muted_slate" background="bg_dark"/>
+  <style name="background-pattern"    background="bg_dark"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"         foreground="neon_cyan" background="bg_bracket" bold="true"/>
+  <style name="bracket-mismatch"      foreground="white_text" background="syntax_error" bold="true"/>
+
+  <!-- Search Results -->
+  <style name="search-match"          foreground="neon_cyan" background="bg_search" bold="true"/>
+
+  <!-- Comments -->
+  <style name="def:comment"           foreground="cool_slate" italic="true"/>
+  <style name="def:shebang"           foreground="neon_sky" bold="true"/>
+  <style name="def:doc-comment-element" foreground="neon_ice" bold="true"/>
+
+  <!-- Python Keywords & Builtins (Neon Blue/Cyan) -->
+  <style name="def:keyword"           foreground="neon_cyan" bold="true"/>
+  <style name="def:builtin"           foreground="neon_blue" bold="true"/>
+  <style name="def:statement"         foreground="neon_cyan" bold="true"/>
+  <style name="def:type"              foreground="neon_ice" bold="true"/>
+
+  <!-- Strings & Characters (Frost White with soft neon blue hue) -->
+  <style name="def:string"            foreground="ice_white"/>
+  <style name="def:character"         foreground="frost_white"/>
+  <style name="def:special-char"      foreground="neon_teal" bold="true"/>
+
+  <!-- Constants, Numbers, Booleans -->
+  <style name="def:constant"          foreground="neon_teal" bold="true"/>
+  <style name="def:number"            foreground="neon_soft_blue"/>
+  <style name="def:floating-point"    foreground="neon_soft_blue"/>
+  <style name="def:boolean"           foreground="neon_cyan" bold="true"/>
+  <style name="def:special-constant"  foreground="neon_blue" bold="true"/>
+
+  <!-- Functions, Classes & Identifiers -->
+  <style name="def:function"          foreground="neon_sky" bold="true"/>
+  <style name="def:identifier"        foreground="white_text"/>
+  <style name="def:variable"          foreground="white_text"/>
+
+  <!-- Error highlight -->
+  <style name="def:error"             foreground="syntax_error" underline="single"/>
+  <style name="def:underlined"        underline="single"/>
+</style-scheme>

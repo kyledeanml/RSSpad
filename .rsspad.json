@@ -1,0 +1,17 @@
+{
+  "author": "Dean",
+  "auto_generate": true,
+  "base_url": "https://kyledeanml.github.io/daily-dean-blues-instrumentals",
+  "category": "Music",
+  "description": "Daily streaming blues instrumentals video & audio podcast feed.",
+  "explicit": false,
+  "github_release_tag": "episodes",
+  "github_repo": "kyledeanml/daily-dean-blues-instrumentals",
+  "image_url": "https://kyledeanml.github.io/daily-dean-blues-instrumentals/cover.jpg",
+  "language": "en-us",
+  "mp3_bitrate": "192k",
+  "output_name": "feed.xml",
+  "publish_command": "",
+  "title": "Daily Dean Blues Instrumentals",
+  "tracks": {}
+}

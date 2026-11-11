@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.mp4
+*.m4v
+*.mov
+*.wav
+*.flac
+*.mp3
+*.m4a
+*.aac
+*.ogg
+*.opus
