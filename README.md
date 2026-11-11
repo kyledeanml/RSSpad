@@ -4,7 +4,7 @@
   <img src="rsspad.svg" alt="RSSpad Logo" width="160" height="160">
 </p>
 
-A fast, modern **Podcast & RSS 2.0 Feed Studio** with **Live Folder Watching**, **GitHub Releases + GitHub Pages Publishing**, **Integrated GStreamer Media Playback**, **FFmpeg Audio/Cover Tools**, **Local Wi-Fi LAN Preview Server**, and a translucent darker-blue RSS emblem resting on an unassuming yoga pad. Built natively for **Linux Mint Cinnamon** using Python 3, GTK 3, GtkSourceView 4, and GStreamer as a companion to **PythonPad**.
+A fast, modern **Podcast & RSS 2.0 Feed Studio** with **Live Folder Watching**, **GitHub Releases + GitHub Pages Publishing**, **Integrated GStreamer Media Playback**, **FFmpeg Audio/Cover Tools**, **Local Wi-Fi LAN Preview Server**, and a translucent darker-blue RSS emblem resting on an unassuming yoga pad. Built natively for **Linux Mint Cinnamon** using Python 3, GTK 3, GtkSourceView 4, and GStreamer.
 
 ---
 
