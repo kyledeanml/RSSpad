@@ -82,6 +82,12 @@ if command -v gtk-update-icon-cache >/dev/null 2>&1; then
     gtk-update-icon-cache -f -t "$HOME/.local/share/icons/hicolor" 2>/dev/null || true
 fi
 
+# Refresh running Cinnamon shell process so new app is immediately visible
+if [ -n "$DBUS_SESSION_BUS_ADDRESS" ] || [ -e "/run/user/$UID/bus" ]; then
+    DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=/run/user/$UID/bus}" \
+    gdbus call --session --dest org.Cinnamon --object-path /org/Cinnamon --method org.Cinnamon.Eval 'global.reexec_self();' >/dev/null 2>&1 || true
+fi
+
 # 5. Enable Cinnamon Menu favorites & pin to taskbar
 if command -v gsettings >/dev/null 2>&1; then
     python3 -c "
