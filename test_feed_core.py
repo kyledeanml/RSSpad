@@ -55,6 +55,15 @@ class FeedCoreTests(unittest.TestCase):
         self.assertEqual(tracks[0].mtime, 1000)
         self.assertEqual([a.name for a in tracks[0].alternates], ["Song.wav"])
 
+    def test_scan_tracks_in_subfolder(self):
+        tracks_dir = self.dir / "tracks"
+        tracks_dir.mkdir()
+        make_wav(tracks_dir / "Subfolder Song.wav", seconds=3)
+        tracks = feed_core.scan_folder(self.dir)
+        self.assertEqual(len(tracks), 1)
+        self.assertEqual(tracks[0].title, "Subfolder Song")
+        self.assertEqual(tracks[0].path, tracks_dir / "Subfolder Song.wav")
+
     def test_ignores_hidden_and_non_audio(self):
         make_wav(self.dir / ".hidden.wav")
         (self.dir / "notes.txt").write_text("x")

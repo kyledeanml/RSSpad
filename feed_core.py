@@ -146,15 +146,28 @@ def read_title_and_duration(path: Path):
 
 
 def scan_folder(folder: Path, cfg: Optional[Dict] = None) -> List[Track]:
-    """Return feed tracks, newest first. Same-stem duplicates collapse to one."""
+    """Return feed tracks, newest first. Same-stem duplicates collapse to one.
+    Scans media files in folder directly or inside dedicated subfolders (e.g. tracks/, media/)."""
     folder = Path(folder)
     cfg = cfg or load_config(folder)
     overrides = cfg.get("tracks", {})
 
     groups: Dict[str, List[Path]] = {}
-    for f in folder.iterdir():
+
+    def consider_file(f: Path):
         if f.is_file() and not f.name.startswith(".") and f.suffix.lower() in MIME_TYPES:
             groups.setdefault(f.stem, []).append(f)
+
+    # 1. Check dedicated subfolders first (tracks/, media/, episodes/)
+    for sub in ("tracks", "media", "episodes"):
+        sub_dir = folder / sub
+        if sub_dir.is_dir():
+            for f in sorted(sub_dir.iterdir()):
+                consider_file(f)
+
+    # 2. Check the root folder
+    for f in sorted(folder.iterdir()):
+        consider_file(f)
 
     tracks = []
     for files in groups.values():
@@ -163,7 +176,8 @@ def scan_folder(folder: Path, cfg: Optional[Dict] = None) -> List[Track]:
         # Keep the original upload time (earliest file in the group) as pubDate
         mtime = min(p.stat().st_mtime for p in files)
         tag_title, duration = read_title_and_duration(chosen)
-        ov = overrides.get(chosen.name) or overrides.get(files[-1].name) or {}
+        rel_key = chosen.relative_to(folder).as_posix()
+        ov = overrides.get(chosen.name) or overrides.get(rel_key) or overrides.get(files[-1].name) or {}
         title = ov.get("title") or tag_title or chosen.stem
         description = ov.get("description") or f"Daily track selection: {title}"
         # A recorded publish time keeps pubDate stable across machines/clones
@@ -202,7 +216,7 @@ def _rfc2822(ts: float) -> str:
     return format_datetime(datetime.fromtimestamp(ts, tz=timezone.utc), usegmt=True)
 
 
-def build_feed_xml(cfg: Dict, tracks: List[Track]) -> str:
+def build_feed_xml(cfg: Dict, tracks: List[Track], folder: Optional[Path] = None) -> str:
     base = cfg.get("base_url", "").rstrip("/")
     title = cfg.get("title") or "Untitled Feed"
     x = [
@@ -229,7 +243,7 @@ def build_feed_xml(cfg: Dict, tracks: List[Track]) -> str:
     x.append(f"    <itunes:explicit>{'true' if cfg.get('explicit') else 'false'}</itunes:explicit>")
 
     for t in tracks:
-        url = escape(track_url(cfg, t))
+        url = escape(track_url(cfg, t, folder))
         x += [
             "    <item>",
             f"      <title>{escape(t.title)}</title>",
@@ -247,11 +261,18 @@ def build_feed_xml(cfg: Dict, tracks: List[Track]) -> str:
     return "\n".join(x)
 
 
-def track_url(cfg: Dict, t: Track) -> str:
+def track_url(cfg: Dict, t: Track, folder: Optional[Path] = None) -> str:
     """Public URL of a track: hosted override (e.g. GitHub Release) or base_url/file."""
     if t.url:
         return t.url
-    return f"{cfg.get('base_url', '').rstrip('/')}/{quote(t.name)}"
+    base = cfg.get("base_url", "").rstrip("/")
+    if folder:
+        try:
+            rel = t.path.relative_to(folder).as_posix()
+            return f"{base}/{quote(rel)}"
+        except ValueError:
+            pass
+    return f"{base}/{quote(t.name)}"
 
 
 def write_feed(folder: Path, cfg: Optional[Dict] = None) -> Path:
@@ -259,23 +280,38 @@ def write_feed(folder: Path, cfg: Optional[Dict] = None) -> Path:
     cfg = cfg or load_config(folder)
     tracks = scan_folder(folder, cfg)
     out = folder / (cfg.get("output_name") or "feed.xml")
-    out.write_text(build_feed_xml(cfg, tracks), encoding="utf-8")
+    out.write_text(build_feed_xml(cfg, tracks, folder=folder), encoding="utf-8")
     if cfg.get("github_repo"):
-        (folder / "index.html").write_text(build_index_html(cfg, tracks), encoding="utf-8")
+        (folder / "index.html").write_text(build_index_html(cfg, tracks, folder=folder), encoding="utf-8")
     return out
 
 
-def build_index_html(cfg: Dict, tracks: List[Track]) -> str:
+def build_index_html(cfg: Dict, tracks: List[Track], folder: Optional[Path] = None) -> str:
     """A sleek neon landing page for GitHub Pages with responsive video previews."""
     title = escape(cfg.get("title") or "Feed")
     feed = escape(f"{cfg.get('base_url', '').rstrip('/')}/{cfg.get('output_name') or 'feed.xml'}")
     items = []
     base = cfg.get("base_url", "").rstrip("/")
     for t in tracks:
-        url = escape(track_url(cfg, t))
+        url = escape(track_url(cfg, t, folder))
         if t.is_video:
             poster_file = f"{t.path.stem}_poster.jpg"
-            poster_attr = f' poster="{base}/{quote(poster_file)}"'
+            p_same = t.path.parent / poster_file
+            p_root = (folder / poster_file) if folder else None
+            if p_same.is_file():
+                if folder:
+                    try:
+                        rel = p_same.relative_to(folder).as_posix()
+                    except ValueError:
+                        rel = p_same.name
+                else:
+                    rel = f"{t.path.parent.name}/{poster_file}" if t.path.parent.name in ("tracks", "media", "episodes") else poster_file
+                poster_attr = f' poster="{base}/{quote(rel)}"'
+            elif p_root and p_root.is_file():
+                poster_attr = f' poster="{base}/{quote(poster_file)}"'
+            else:
+                rel = f"{t.path.parent.name}/{poster_file}" if t.path.parent.name in ("tracks", "media", "episodes") else poster_file
+                poster_attr = f' poster="{base}/{quote(rel)}"'
             player = (
                 f'<video controls preload="metadata"{poster_attr}>\n'
                 f'      <source src="{url}" type="video/mp4">\n'
@@ -426,7 +462,7 @@ def sync_github(folder: Path, log_fn=print) -> bool:
             log_fn(f"Generating cover.jpg from {videos[0].name}...")
             subprocess.run(make_cover_command(videos[0], cover_path), check=False)
         for v in videos:
-            pframe = folder / f"{v.stem}_poster.jpg"
+            pframe = v.parent / f"{v.stem}_poster.jpg"
             if not pframe.exists():
                 log_fn(f"Generating preview poster for {v.name}...")
                 subprocess.run(

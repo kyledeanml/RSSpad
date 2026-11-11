@@ -748,10 +748,20 @@ class RSSpadWindow(Gtk.ApplicationWindow):
     def _watch_folder(self):
         if self._monitor:
             self._monitor.cancel()
+        if hasattr(self, "_sub_monitor") and self._sub_monitor:
+            self._sub_monitor.cancel()
+            self._sub_monitor = None
         try:
             self._monitor = Gio.File.new_for_path(self.folder).monitor_directory(
                 Gio.FileMonitorFlags.WATCH_MOVES, None)
             self._monitor.connect("changed", self._on_folder_changed)
+            for sub in ("tracks", "media", "episodes"):
+                subdir = Path(self.folder) / sub
+                if subdir.is_dir():
+                    self._sub_monitor = Gio.File.new_for_path(str(subdir)).monitor_directory(
+                        Gio.FileMonitorFlags.WATCH_MOVES, None)
+                    self._sub_monitor.connect("changed", self._on_folder_changed)
+                    break
         except GLib.Error as exc:
             self.log(f"Folder watching unavailable: {exc.message}", "error")
 
@@ -955,6 +965,10 @@ class RSSpadWindow(Gtk.ApplicationWindow):
         if not files or not self.folder:
             return
         dest_dir = Path(self.folder)
+        if (dest_dir / "tracks").is_dir():
+            dest_dir = dest_dir / "tracks"
+        elif (dest_dir / "media").is_dir():
+            dest_dir = dest_dir / "media"
 
         def worker():
             for src in files:
