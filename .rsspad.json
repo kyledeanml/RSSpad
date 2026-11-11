@@ -13,5 +13,14 @@
   "output_name": "feed.xml",
   "publish_command": "",
   "title": "Daily Dean Blues Instrumentals",
-  "tracks": {}
+  "tracks": {
+    "24 Hours.mp4": {
+      "pub": 1794369926.4708655,
+      "url": "https://github.com/kyledeanml/daily-dean-blues-instrumentals/releases/download/episodes/24.Hours.mp4"
+    },
+    "Blue Grunge.mp4": {
+      "pub": 1794372770.602781,
+      "url": "https://github.com/kyledeanml/daily-dean-blues-instrumentals/releases/download/episodes/Blue.Grunge.mp4"
+    }
+  }
 }
