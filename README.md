@@ -25,6 +25,7 @@ A fast, modern **Podcast & RSS 2.0 Feed Studio** with **Live Folder Watching**, 
 - **FFmpeg Cover Art & MP3 Extraction**: Generate square 1400x1400 podcast cover art (`cover.jpg`) from any video track or batch-extract `.mp3` audio from `.mp4`/`.wav` files.
 - **Local LAN Preview Server**: One-click HTTP server (`http://<lan-ip>:8765/feed.xml`) to test your feed in any podcast app over local Wi-Fi before publishing.
 - **Live `feed.xml` Inspector**: View syntax-highlighted XML output in real time using the `pythonpad-neon` GtkSourceView scheme.
+- **User Manual**: Includes a concise 2-page dark-neon [RSSpad User Manual (PDF)](RSSpad%20User%20Manual.pdf).
 
 ---
 
