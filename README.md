@@ -1,4 +1,4 @@
-# Daily Dean Blues Instrumentals — RSSpad Studio
+# RSSpad Studio
 
 Video podcast feed and **RSSpad** studio (part of the **PythonPad** application suite for Linux Mint Cinnamon).
 
