@@ -13,10 +13,15 @@ echo " (Podcast & RSS Feed Studio - PythonPad family)"
 echo "=========================================================="
 
 chmod +x "$DIR/run.sh" "$DIR/rsspad.py" "$DIR/feed_core.py"
-mkdir -p "$APP_DIR" "$ICONS_DIR" "$BIN_DIR" "$STYLES_DIR" "$HOME/.icons" "$HOME/.local/share/pixmaps"
+
+mkdir -p "$APP_DIR"
+mkdir -p "$ICONS_DIR"
+mkdir -p "$BIN_DIR"
+mkdir -p "$STYLES_DIR"
 
 # 1. Install high-DPI vector icon & multi-size PNG icons for Cinnamon panel / menus
 cp -f "$DIR/rsspad.svg" "$ICONS_DIR/rsspad.svg"
+mkdir -p "$HOME/.icons" "$HOME/.local/share/pixmaps"
 cp -f "$DIR/rsspad.svg" "$HOME/.icons/rsspad.svg"
 cp -f "$DIR/rsspad.svg" "$HOME/.local/share/pixmaps/rsspad.svg"
 
@@ -29,31 +34,31 @@ base = os.path.expanduser('~/.local/share/icons/hicolor')
 for sz in (16, 24, 32, 48, 64, 128, 256, 512):
     out_dir = os.path.join(base, f'{sz}x{sz}', 'apps')
     os.makedirs(out_dir, exist_ok=True)
-    GdkPixbuf.Pixbuf.new_from_file_at_scale(src, sz, sz, True).savev(
-        os.path.join(out_dir, 'rsspad.png'), 'png', [], [])
+    pb = GdkPixbuf.Pixbuf.new_from_file_at_scale(src, sz, sz, True)
+    pb.savev(os.path.join(out_dir, 'rsspad.png'), 'png', [], [])
 " 2>/dev/null || true
-echo "[+] Installed RSSpad SVG & panel icon set: $ICONS_DIR/rsspad.svg"
 
+echo "[+] Installed RSSpad SVG & panel icon set: $ICONS_DIR/rsspad.svg"
 if [ -d "$DIR/styles" ]; then
     cp -r "$DIR/styles/"* "$STYLES_DIR/"
     echo "[+] Installed GtkSource style schemes: $STYLES_DIR"
 fi
 
-# 2. CLI launcher (no spaces in path so .desktop Exec never needs quotes)
+# 2. Install executable launcher in ~/.local/bin
 ln -sf "$DIR/run.sh" "$BIN_DIR/rsspad"
 echo "[+] Created CLI executable link: $BIN_DIR/rsspad"
 
-# 3. Desktop entry
+# 3. Write desktop launcher for Cinnamon Menu and Panel matching PythonPad format
 cat <<EOF > "$APP_DIR/rsspad.desktop"
 [Desktop Entry]
 Name=RSSpad
 Comment=Podcast & RSS feed studio: turn a folder of video & audio tracks into a podcast feed
 GenericName=Podcast & RSS Feed Studio
-Exec=$BIN_DIR/rsspad %F
+Exec=$DIR/run.sh %F
 Icon=$ICONS_DIR/rsspad.svg
 Terminal=false
 Type=Application
-Categories=GTK;GNOME;AudioVideo;Audio;Video;
+Categories=GTK;GNOME;AudioVideo;Audio;Video;Utility;
 MimeType=application/rss+xml;inode/directory;
 StartupNotify=true
 StartupWMClass=rsspad
@@ -62,8 +67,9 @@ Actions=NewWindow;
 
 [Desktop Action NewWindow]
 Name=Open a New Window
-Exec=$BIN_DIR/rsspad
+Exec=$DIR/run.sh
 EOF
+
 chmod +x "$APP_DIR/rsspad.desktop"
 echo "[+] Installed desktop entry: $APP_DIR/rsspad.desktop"
 
@@ -76,27 +82,25 @@ if command -v gtk-update-icon-cache >/dev/null 2>&1; then
     gtk-update-icon-cache -f -t "$HOME/.local/share/icons/hicolor" 2>/dev/null || true
 fi
 
-# 5. Add RSSpad to Cinnamon Menu favorites AND pinned taskbar panel apps
-python3 -B -c "
-import os, glob, json
+# 5. Enable Cinnamon Menu favorites & pin to taskbar
+if command -v gsettings >/dev/null 2>&1; then
+    python3 -c "
 import gi
 from gi.repository import Gio
-
-if not os.environ.get('DBUS_SESSION_BUS_ADDRESS'):
-    bus = f'/run/user/{os.getuid()}/bus'
-    if os.path.exists(bus):
-        os.environ['DBUS_SESSION_BUS_ADDRESS'] = f'unix:path={bus}'
-
 try:
     settings = Gio.Settings.new('org.cinnamon')
     favs = list(settings.get_strv('favorite-apps'))
     if 'rsspad.desktop' not in favs:
         favs.append('rsspad.desktop')
-        settings.set_strv('favorite-apps', favs)
+    settings.set_strv('favorite-apps', favs)
     print('[+] Added RSSpad to Cinnamon favorite apps')
 except Exception:
     pass
+" || true
+fi
 
+python3 -B -c "
+import os, glob, json
 for cfg_path in glob.glob(os.path.expanduser('~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/*.json')):
     try:
         with open(cfg_path, 'r', encoding='utf-8') as f:
@@ -106,7 +110,7 @@ for cfg_path in glob.glob(os.path.expanduser('~/.config/cinnamon/spices/grouped-
             pinned.append('rsspad.desktop')
             with open(cfg_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=4)
-            print('[+] Pinned RSSpad to Cinnamon grouped-window-list panel:', cfg_path)
+            print('[+] Pinned RSSpad to Cinnamon grouped-window-list panel')
     except Exception:
         pass
 " || true
@@ -115,6 +119,13 @@ echo ""
 echo "=========================================================="
 echo " Installation Complete!"
 echo "=========================================================="
-echo "Launch RSSpad from your Cinnamon panel, menu, or terminal:"
+echo "To place RSSpad on your Linux Mint Cinnamon panel:"
+echo "  1. Click your Cinnamon Menu button (bottom-left)."
+echo "  2. Search for 'RSSpad' (under Sound & Video or Favorites)."
+echo "  3. Right-click 'RSSpad' and select 'Add to panel'."
+echo "     (Or drag the RSSpad icon from the menu and drop"
+echo "      it directly onto your panel)."
+echo ""
+echo "You can also launch it anytime from terminal by typing:"
 echo "  rsspad"
 echo "=========================================================="
