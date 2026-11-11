@@ -48,9 +48,9 @@ VIDEO_EXTS = {".mp4", ".m4v", ".mov"}
 FORMAT_PREFERENCE = [".mp4", ".m4v", ".mov", ".mp3", ".m4a", ".aac", ".ogg", ".opus", ".flac", ".wav"]
 
 DEFAULT_CONFIG = {
-    "base_url": "https://yourdomain.com/daily-dean-blues",
+    "base_url": "https://yourdomain.com/podcast",
     "title": "",
-    "description": "My personal daily streaming blues instrumentals feed.",
+    "description": "My personal daily streaming podcast feed.",
     "author": "",
     "language": "en-us",
     "image_url": "",

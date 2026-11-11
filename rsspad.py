@@ -40,7 +40,7 @@ import feed_core
 from feed_core import fmt_duration, fmt_size
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_FOLDER = os.path.expanduser("~/Videos/Daily Dean Blues Instrumentals")
+DEFAULT_FOLDER = os.path.expanduser("~/Music")
 SERVER_PORT = 8765
 
 # Track list columns
@@ -98,7 +98,9 @@ class RSSpadWindow(Gtk.ApplicationWindow):
         self.connect("delete-event", self._on_delete_event)
         self.show_all()
 
-        folder = initial_folder or self._load_last_folder() or DEFAULT_FOLDER
+        folder = initial_folder or self._load_last_folder() or (
+            APP_DIR if os.path.isfile(os.path.join(APP_DIR, feed_core.CONFIG_NAME)) else DEFAULT_FOLDER
+        )
         if os.path.isdir(folder):
             self.open_folder(folder)
         else:
@@ -1410,7 +1412,7 @@ def shutil_which(cmd):
 
 class RSSpadApp(Gtk.Application):
     def __init__(self):
-        super().__init__(application_id="com.bluechile.rsspad",
+        super().__init__(application_id="org.linuxmint.rsspad",
                          flags=Gio.ApplicationFlags.HANDLES_OPEN | Gio.ApplicationFlags.NON_UNIQUE)
         GLib.set_application_name("RSSpad")
         GLib.set_prgname("rsspad")

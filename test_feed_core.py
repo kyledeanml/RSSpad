@@ -96,11 +96,11 @@ class FeedCoreTests(unittest.TestCase):
     def test_video_mp4_and_hosted_url_override(self):
         (self.dir / "Blue Grunge.mp4").write_bytes(b"\0" * 512)
         cfg = feed_core.load_config(self.dir)
-        cfg["github_repo"] = "kyledeanml/daily-dean-blues-instrumentals"
+        cfg["github_repo"] = "example/my-podcast-feed"
         cfg["tracks"] = {
             "Blue Grunge.mp4": {
                 "title": "Blue Grunge",
-                "url": "https://github.com/kyledeanml/daily-dean-blues-instrumentals/releases/download/episodes/Blue.Grunge.mp4",
+                "url": "https://github.com/example/my-podcast-feed/releases/download/episodes/Blue.Grunge.mp4",
                 "pub": 1700000000,
             }
         }
@@ -110,7 +110,7 @@ class FeedCoreTests(unittest.TestCase):
         self.assertEqual(enc.getAttribute("type"), "video/mp4")
         self.assertEqual(
             enc.getAttribute("url"),
-            "https://github.com/kyledeanml/daily-dean-blues-instrumentals/releases/download/episodes/Blue.Grunge.mp4",
+            "https://github.com/example/my-podcast-feed/releases/download/episodes/Blue.Grunge.mp4",
         )
         self.assertTrue((self.dir / "index.html").is_file())
 
