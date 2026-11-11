@@ -5,7 +5,7 @@
     <link>https://kyledeanml.github.io/RSSpad</link>
     <language>en-us</language>
     <description>Daily streaming blues instrumentals video &amp; audio podcast feed.</description>
-    <lastBuildDate>Wed, 11 Nov 2026 19:02:04 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 23:55:04 GMT</lastBuildDate>
     <generator>RSSpad</generator>
     <itunes:author>Dean</itunes:author>
     <itunes:image href="https://kyledeanml.github.io/RSSpad/cover.jpg" />
@@ -16,6 +16,22 @@
     </image>
     <itunes:category text="Music" />
     <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>Hot House</title>
+      <description>Daily track selection: Hot House</description>
+      <pubDate>Wed, 11 Nov 2026 23:48:52 GMT</pubDate>
+      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Hot.House.mp4" length="10584817" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Hot.House.mp4</guid>
+      <itunes:duration>00:04:18</itunes:duration>
+    </item>
+    <item>
+      <title>Ragged Edge</title>
+      <description>Daily track selection: Ragged Edge</description>
+      <pubDate>Wed, 11 Nov 2026 20:24:28 GMT</pubDate>
+      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Ragged.Edge.mp4" length="135174582" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Ragged.Edge.mp4</guid>
+      <itunes:duration>00:02:58</itunes:duration>
+    </item>
     <item>
       <title>Blue Grunge</title>
       <description>Daily track selection: Blue Grunge</description>

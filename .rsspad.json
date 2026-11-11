@@ -38,6 +38,10 @@
       "pub": 1794217900.8517826,
       "url": "https://github.com/kyledeanml/RSSpad/releases/download/episodes/Gambling.mp4"
     },
+    "Hot House.mp4": {
+      "pub": 1794440932.0582364,
+      "url": "https://github.com/kyledeanml/RSSpad/releases/download/episodes/Hot.House.mp4"
+    },
     "Keep Goin.mp4": {
       "pub": 1794254919.5575476,
       "url": "https://github.com/kyledeanml/RSSpad/releases/download/episodes/Keep.Goin.mp4"
@@ -59,6 +63,10 @@
     "Quit Yer Job.mp4": {
       "pub": 1794177826.4558446,
       "url": "https://github.com/kyledeanml/RSSpad/releases/download/episodes/Quit.Yer.Job.mp4"
+    },
+    "Ragged Edge.mp4": {
+      "pub": 1794428668.1552825,
+      "url": "https://github.com/kyledeanml/RSSpad/releases/download/episodes/Ragged.Edge.mp4"
     }
   }
 }
