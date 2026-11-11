@@ -42,8 +42,7 @@ A complete 2-page visual reference manual crafted in the **PythonPad dark-neon a
 </p>
 
 <p align="center">
-  <b><a href="RSSpad%20User%20Manual.pdf">📄 Open RSSpad User Manual (PDF)</a></b> &nbsp;&bull;&nbsp; 
-  <b><a href="docs/generate_manual.py">⚙️ Cairo/Pango PDF Generator Script</a></b>
+  <b><a href="RSSpad%20User%20Manual.pdf">📄 Open RSSpad User Manual (PDF)</a></b>
 </p>
 
 ---
