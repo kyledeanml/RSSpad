@@ -293,7 +293,6 @@ def build_index_html(cfg: Dict, tracks: List[Track]) -> str:
             f'    <p class="desc">{escape(t.description)}</p>\n'
             f'  </article>'
         )
-    cover = f'<img class="cover" src="{escape(cfg["image_url"])}" alt="">' if cfg.get("image_url") else ""
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -319,19 +318,9 @@ def build_index_html(cfg: Dict, tracks: List[Track]) -> str:
       line-height: 1.5;
     }}
     main {{ max-width: 760px; margin: 0 auto; }}
-    header {{ margin-bottom: 24px; }}
+    header {{ margin-bottom: 24px; text-align: center; }}
     h1 {{ color: var(--cyan); margin: 0 0 6px 0; font-size: 1.8rem; }}
     .sub {{ color: var(--blue); margin: 0; font-size: 0.95rem; }}
-    .cover {{
-      width: 130px;
-      height: 130px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      float: right;
-      object-fit: cover;
-      margin-left: 16px;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
-    }}
     article {{
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -365,7 +354,6 @@ def build_index_html(cfg: Dict, tracks: List[Track]) -> str:
 </head>
 <body>
 <main>
-  {cover}
   <header>
     <h1>{title}</h1>
     <p class="sub">{escape(cfg.get('description') or '')}</p>
