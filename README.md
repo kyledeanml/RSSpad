@@ -25,7 +25,26 @@ A fast, modern **Podcast & RSS 2.0 Feed Studio** with **Live Folder Watching**, 
 - **FFmpeg Cover Art & MP3 Extraction**: Generate square 1400x1400 podcast cover art (`cover.jpg`) from any video track or batch-extract `.mp3` audio from `.mp4`/`.wav` files.
 - **Local LAN Preview Server**: One-click HTTP server (`http://<lan-ip>:8765/feed.xml`) to test your feed in any podcast app over local Wi-Fi before publishing.
 - **Live `feed.xml` Inspector**: View syntax-highlighted XML output in real time using the `pythonpad-neon` GtkSourceView scheme.
-- **User Manual**: Includes a concise 2-page dark-neon [RSSpad User Manual (PDF)](RSSpad%20User%20Manual.pdf).
+
+---
+
+## 📖 User Manual & Quick Reference
+
+A complete 2-page visual reference manual crafted in the **PythonPad dark-neon aesthetic** (`#0b0f19` / `#00f0ff`), covering core architecture, one-click GitHub publishing workflows, toolbar controls, workspace panels, keyboard shortcuts, `.rsspad.json` schema, headless CLI automation, and Linux Mint Cinnamon desktop integration.
+
+<p align="center">
+  <a href="RSSpad%20User%20Manual.pdf" title="Click to open RSSpad User Manual PDF">
+    <img src="docs/manual_page_1.png" alt="RSSpad User Manual - Page 1 (Architecture, Workflow & Controls)" width="48%">
+  </a>
+  <a href="RSSpad%20User%20Manual.pdf" title="Click to open RSSpad User Manual PDF">
+    <img src="docs/manual_page_2.png" alt="RSSpad User Manual - Page 2 (Keyboard Shortcuts, Schema & CLI)" width="48%">
+  </a>
+</p>
+
+<p align="center">
+  <b><a href="RSSpad%20User%20Manual.pdf">📄 Open RSSpad User Manual (PDF)</a></b> &nbsp;&bull;&nbsp; 
+  <b><a href="docs/generate_manual.py">⚙️ Cairo/Pango PDF Generator Script</a></b>
+</p>
 
 ---
 
