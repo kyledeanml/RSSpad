@@ -1,7 +1,7 @@
-# RSSpad
+# RSSpanel
 
 <p align="center">
-  <img src="rsspad.svg" alt="RSSpad Logo" width="160" height="160">
+  <img src="rsspanel.svg" alt="RSSpanel Logo" width="160" height="160">
 </p>
 
 A fast, modern **Podcast & RSS 2.0 Feed Studio** with **Live Folder Watching**, **GitHub Releases + GitHub Pages Publishing**, **Integrated GStreamer Media Playback**, **FFmpeg Audio/Cover Tools**, **Local Wi-Fi LAN Preview Server**, and a translucent darker-blue RSS emblem resting on an unassuming yoga pad. Built natively for **Linux Mint Cinnamon** using Python 3, GTK 3, GtkSourceView 4, and GStreamer.
@@ -13,7 +13,7 @@ A fast, modern **Podcast & RSS 2.0 Feed Studio** with **Live Folder Watching**, 
 ### Automatic Video & Audio Feed Generation
 - **Multi-Format Episode Scanning**: Automatically detects `.mp4`, `.m4v`, `.mov`, `.mp3`, `.m4a`, `.aac`, `.ogg`, `.opus`, `.flac`, and `.wav` files in any feed folder, reads durations and sizes via `ffprobe`/`tinytag`/`wave`, and writes a compliant iTunes & RSS 2.0 `feed.xml`.
 - **Live Folder Monitoring**: Watches your feed directory using `Gio.FileMonitor` and automatically updates `feed.xml` whenever you drop in or rename media files.
-- **Per-Episode Metadata Editor**: Customize individual episode titles and descriptions while preserving original publish timestamps in `.rsspad.json`.
+- **Per-Episode Metadata Editor**: Customize individual episode titles and descriptions while preserving original publish timestamps in `.rsspanel.json`.
 
 ### One-Click GitHub Releases + Pages Hosting (`F6`)
 - **Bypass the 100 MB Git Limit**: Large `.mp4` video episodes or lossless audio files are automatically uploaded to a GitHub Release (`episodes` tag, up to 2 GB per file) via the GitHub CLI (`gh`), and their direct streaming URLs are linked as `<enclosure>` tags in `feed.xml`.
@@ -21,28 +21,28 @@ A fast, modern **Podcast & RSS 2.0 Feed Studio** with **Live Folder Watching**, 
 - **Custom Publish Commands**: Alternatively run any custom `rsync`, `rclone`, or `git push` command on publish.
 
 ### Integrated Media Tools & Preview
-- **Built-in GStreamer Player (`Space`)**: Play or pause audio and video tracks directly inside RSSpad with live position/duration feedback in the status bar.
+- **Built-in GStreamer Player (`Space`)**: Play or pause audio and video tracks directly inside RSSpanel with live position/duration feedback in the status bar.
 - **FFmpeg Cover Art & MP3 Extraction**: Generate square 1400x1400 podcast cover art (`cover.jpg`) from any video track or batch-extract `.mp3` audio from `.mp4`/`.wav` files.
 - **Local LAN Preview Server**: One-click HTTP server (`http://<lan-ip>:8765/feed.xml`) to test your feed in any podcast app over local Wi-Fi before publishing.
-- **Live `feed.xml` Inspector**: View syntax-highlighted XML output in real time using the `pythonpad-neon` GtkSourceView scheme.
+- **Live `feed.xml` Inspector**: View syntax-highlighted XML output in real time using the `pythonpanel-neon` GtkSourceView scheme.
 
 ---
 
 ## 📖 User Manual & Quick Reference
 
-A complete 2-page visual reference manual crafted in the **PythonPad dark-neon aesthetic** (`#0b0f19` / `#00f0ff`), covering core architecture, one-click GitHub publishing workflows, toolbar controls, workspace panels, keyboard shortcuts, `.rsspad.json` schema, headless CLI automation, and Linux Mint Cinnamon desktop integration.
+A complete 2-page visual reference manual crafted in the **PythonPanel dark-neon aesthetic** (`#0b0f19` / `#00f0ff`), covering core architecture, one-click GitHub publishing workflows, toolbar controls, workspace panels, keyboard shortcuts, `.rsspanel.json` schema, headless CLI automation, and Linux Mint Cinnamon desktop integration.
 
 <p align="center">
-  <a href="RSSpad%20User%20Manual.pdf" title="Click to open RSSpad User Manual PDF">
-    <img src="docs/manual_page_1.png" alt="RSSpad User Manual - Page 1 (Architecture, Workflow & Controls)" width="48%">
+  <a href="RSSpanel%20User%20Manual.pdf" title="Click to open RSSpanel User Manual PDF">
+    <img src="docs/manual_page_1.png" alt="RSSpanel User Manual - Page 1 (Architecture, Workflow & Controls)" width="48%">
   </a>
-  <a href="RSSpad%20User%20Manual.pdf" title="Click to open RSSpad User Manual PDF">
-    <img src="docs/manual_page_2.png" alt="RSSpad User Manual - Page 2 (Keyboard Shortcuts, Schema & CLI)" width="48%">
+  <a href="RSSpanel%20User%20Manual.pdf" title="Click to open RSSpanel User Manual PDF">
+    <img src="docs/manual_page_2.png" alt="RSSpanel User Manual - Page 2 (Keyboard Shortcuts, Schema & CLI)" width="48%">
   </a>
 </p>
 
 <p align="center">
-  <b><a href="RSSpad%20User%20Manual.pdf">📄 Open RSSpad User Manual (PDF)</a></b>
+  <b><a href="RSSpanel%20User%20Manual.pdf">📄 Open RSSpanel User Manual (PDF)</a></b>
 </p>
 
 ---
@@ -54,21 +54,21 @@ A complete 2-page visual reference manual crafted in the **PythonPad dark-neon a
 ```
 
 The installer automatically:
-- Installs the vector icon (`rsspad.svg`) and multi-size panel icon set (`16x16` through `512x512`) into `~/.local/share/icons/hicolor/`.
-- Installs the desktop launcher (`~/.local/share/applications/rsspad.desktop`) with `StartupWMClass=rsspad`.
-- Creates the CLI command symlink at `~/.local/bin/rsspad`.
-- Pins **RSSpad** to your Cinnamon Menu favorites and taskbar panel.
+- Installs the vector icon (`rsspanel.svg`) and multi-size panel icon set (`16x16` through `512x512`) into `~/.local/share/icons/hicolor/`.
+- Installs the desktop launcher (`~/.local/share/applications/rsspanel.desktop`) with `StartupWMClass=rsspanel`.
+- Creates the CLI command symlink at `~/.local/bin/rsspanel`.
+- Pins **RSSpanel** to your Cinnamon Menu favorites and taskbar panel.
 
 ---
 
 ## Usage
 
 ```bash
-# Launch RSSpad GUI (opens your last feed folder or ~/Music by default)
-rsspad
+# Launch RSSpanel GUI (opens your last feed folder or ~/Music by default)
+rsspanel
 
-# Open a specific media folder in RSSpad
-rsspad /path/to/your/media-folder
+# Open a specific media folder in RSSpanel
+rsspanel /path/to/your/media-folder
 
 # Headless CLI: generate feed.xml for a folder
 python3 feed_core.py /path/to/your/media-folder
@@ -93,4 +93,4 @@ python3 feed_core.py --sync-github /path/to/your/media-folder
 | `Ctrl + Shift + C` | Copy public Feed URL to clipboard |
 | `Delete` | Rename or move selected track to Trash |
 | `Ctrl + 1 / 2 / 3` | Switch between Tracks, `feed.xml`, and Activity Log |
-| `Ctrl + Q` | Quit RSSpad |
+| `Ctrl + Q` | Quit RSSpanel |

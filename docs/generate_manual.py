@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a compact, dense, beautifully structured RSSpad Quick Reference & Manual PDF."""
+"""Generate a compact, dense, beautifully structured RSSpanel Quick Reference & Manual PDF."""
 
 import os
 import sys
@@ -55,7 +55,7 @@ class CompactPDFBuilder:
 
         layout = PangoCairo.create_layout(self.cr)
         layout.set_markup(
-            '<span foreground="#64748b" font="Sans 7.5">RSSpad Manual  &#x2022;  PythonPad Creative Suite  &#x2022;  Linux Mint Cinnamon</span>'
+            '<span foreground="#64748b" font="Sans 7.5">RSSpanel Manual  &#x2022;  PythonPanel Creative Suite  &#x2022;  Linux Mint Cinnamon</span>'
         )
         self.cr.move_to(MARGIN_X, PAGE_HEIGHT - 17)
         PangoCairo.show_layout(self.cr, layout)
@@ -297,13 +297,13 @@ def build_compact_manual(output_pdf, icon_svg):
     # ------------------ SECTION: OVERVIEW & CORE ARCHITECTURE ------------------
     builder.add_section_header("Overview &amp; Core Architecture")
     builder.add_pango_text(
-        '<span foreground="#e2e8f0" font="Sans 8.5"><b>RSSpad</b> is a lightweight GTK 3 desktop studio that converts any folder of video or audio tracks into an Apple Podcasts / iTunes-compliant RSS 2.0 feed and modern streaming web portal. Large media files bypass GitHub&#x2019;s 100 MB Git blob restriction by uploading directly to a GitHub Release, while the lightweight XML feed and responsive HTML player are pushed to GitHub Pages.</span>'
+        '<span foreground="#e2e8f0" font="Sans 8.5"><b>RSSpanel</b> is a lightweight GTK 3 desktop studio that converts any folder of video or audio tracks into an Apple Podcasts / iTunes-compliant RSS 2.0 feed and modern streaming web portal. Large media files bypass GitHub&#x2019;s 100 MB Git blob restriction by uploading directly to a GitHub Release, while the lightweight XML feed and responsive HTML player are pushed to GitHub Pages.</span>'
     )
     builder.y += 4
 
     builder.add_compact_box(
         "CORE HIGHLIGHTS",
-        "Multi-format scanning (.mp4, .m4v, .mov, .mp3, .wav, .flac, .ogg, .m4a)  &#x2022;  Automatic video poster frame generation  &#x2022;  Native GStreamer media player  &#x2022;  Local Wi-Fi testing server  &#x2022;  Background file watcher  &#x2022;  PythonPad dark neon design.",
+        "Multi-format scanning (.mp4, .m4v, .mov, .mp3, .wav, .flac, .ogg, .m4a)  &#x2022;  Automatic video poster frame generation  &#x2022;  Native GStreamer media player  &#x2022;  Local Wi-Fi testing server  &#x2022;  Background file watcher  &#x2022;  PythonPanel dark neon design.",
         border_rgb=(0.0, 0.94, 1.0)
     )
 
@@ -311,8 +311,8 @@ def build_compact_manual(output_pdf, icon_svg):
     builder.add_section_header("Daily Publishing Workflow")
     builder.add_2col_grid(
         [
-            ("1. Drop Media", "Save or export your finished .mp4, .wav, or .mp3 track directly into your feed directory (or drag-and-drop into RSSpad)."),
-            ("2. Auto-Detect", "RSSpad calculates runtime, size, auto-generates a clean video preview frame, and indexes the episode instantly.")
+            ("1. Drop Media", "Save or export your finished .mp4, .wav, or .mp3 track directly into your feed directory (or drag-and-drop into RSSpanel)."),
+            ("2. Auto-Detect", "RSSpanel calculates runtime, size, auto-generates a clean video preview frame, and indexes the episode instantly.")
         ],
         [
             ("3. One-Click Publish (F6)", "Press F6 or click 'Generate &amp; Publish'. New episodes upload to GitHub Releases, and feed.xml + index.html update on Pages."),
@@ -365,14 +365,14 @@ def build_compact_manual(output_pdf, icon_svg):
         ("Delete", "Rename track or move file to Trash"),
         ("Ctrl + Shift + C", "Copy public feed.xml URL to clipboard"),
         ("Ctrl + 1 / 2 / 3", "Switch between Tracks, feed.xml, and Activity Log tabs"),
-        ("Ctrl + Q", "Quit RSSpad"),
+        ("Ctrl + Q", "Quit RSSpanel"),
     ]
     builder.add_compact_table(["Shortcut", "Action Description"], shortcuts, col_widths=[105, CONTENT_WIDTH - 105])
 
     # ------------------ SECTION: CONFIGURATION SCHEMA ------------------
-    builder.add_section_header("Configuration Schema (.rsspad.json)")
+    builder.add_section_header("Configuration Schema (.rsspanel.json)")
     builder.add_pango_text(
-        '<span foreground="#e2e8f0" font="Sans 8">Channel configuration is saved in an unobtrusive <b>.rsspad.json</b> file inside your media directory:</span>'
+        '<span foreground="#e2e8f0" font="Sans 8">Channel configuration is saved in an unobtrusive <b>.rsspanel.json</b> file inside your media directory:</span>'
     )
     builder.y += 4
     cfg_left = [
@@ -393,7 +393,7 @@ def build_compact_manual(output_pdf, icon_svg):
         "TERMINAL &amp; CRON USAGE",
         "<b># Compile feed locally:</b> python3 feed_core.py /path/to/media/folder\n"
         "<b># Upload &amp; publish to GitHub:</b> python3 feed_core.py --sync-github /path/to/media/folder\n"
-        "<b># Launch GUI:</b> rsspad or rsspad /path/to/media/folder",
+        "<b># Launch GUI:</b> rsspanel or rsspanel /path/to/media/folder",
         bg_rgb=(0.04, 0.07, 0.12),
         border_rgb=(0.22, 0.74, 0.97)
     )
@@ -402,11 +402,11 @@ def build_compact_manual(output_pdf, icon_svg):
     builder.add_section_header("Linux Mint Cinnamon Integration")
     builder.add_2col_grid(
         [
-            ("Panel Shortcut", "Right-click 'RSSpad' in the Cinnamon Menu (Sound &amp; Video / Favorites) and select 'Add to panel'."),
-            ("Application Location", "Standard installation resides at /home/bluechile/rsspad with executable linked to ~/.local/bin/rsspad.")
+            ("Panel Shortcut", "Right-click 'RSSpanel' in the Cinnamon Menu (Sound &amp; Video / Favorites) and select 'Add to panel'."),
+            ("Application Location", "Standard installation resides at /home/bluechile/rsspanel with executable linked to ~/.local/bin/rsspanel.")
         ],
         [
-            ("Desktop Launcher", "A verified desktop shortcut is maintained at ~/Desktop/rsspad.desktop for instant double-click launch."),
+            ("Desktop Launcher", "A verified desktop shortcut is maintained at ~/Desktop/rsspanel.desktop for instant double-click launch."),
             ("HiDPI Retina Icon", "Vector scalable SVG icon installed across 16px to 512px system icon themes.")
         ]
     )
@@ -415,6 +415,6 @@ def build_compact_manual(output_pdf, icon_svg):
     print(f"Generated compact manual: {output_pdf}")
 
 if __name__ == "__main__":
-    out_file = sys.argv[1] if len(sys.argv) > 1 else "/home/bluechile/Desktop/RSSpad User Manual.pdf"
-    icon = sys.argv[2] if len(sys.argv) > 2 else "/home/bluechile/Videos/Daily Dean Blues Instrumentals/rsspad.svg"
+    out_file = sys.argv[1] if len(sys.argv) > 1 else "/home/bluechile/Desktop/RSSpanel User Manual.pdf"
+    icon = sys.argv[2] if len(sys.argv) > 2 else "/home/bluechile/Videos/Daily Dean Blues Instrumentals/rsspanel.svg"
     build_compact_manual(out_file, icon)

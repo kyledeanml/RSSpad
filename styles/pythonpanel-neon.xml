@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- PythonPad Neon Theme
+ PythonPanel Neon Theme
  Deep dark mode with brilliant white text and neon blue accents
 -->
-<style-scheme id="pythonpad-neon" _name="Neon Blue &amp; White" version="1.0">
-  <author>PythonPad</author>
+<style-scheme id="pythonpanel-neon" _name="Neon Blue &amp; White" version="1.0">
+  <author>PythonPanel</author>
   <_description>Dark mode theme with white text and neon blue hues</_description>
 
   <!-- Color Palette -->

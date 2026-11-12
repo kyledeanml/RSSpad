@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <title>Daily Dean Blues Instrumentals</title>
-    <link>https://kyledeanml.github.io/RSSpad</link>
+    <link>https://kyledeanml.github.io/RSSpanel</link>
     <language>en-us</language>
     <description>Daily streaming blues instrumentals video &amp; audio podcast feed.</description>
     <lastBuildDate>Wed, 11 Nov 2026 23:55:04 GMT</lastBuildDate>
-    <generator>RSSpad</generator>
+    <generator>RSSpanel</generator>
     <itunes:author>Dean</itunes:author>
-    <itunes:image href="https://kyledeanml.github.io/RSSpad/cover.jpg" />
+    <itunes:image href="https://kyledeanml.github.io/RSSpanel/cover.jpg" />
     <image>
-      <url>https://kyledeanml.github.io/RSSpad/cover.jpg</url>
+      <url>https://kyledeanml.github.io/RSSpanel/cover.jpg</url>
       <title>Daily Dean Blues Instrumentals</title>
-      <link>https://kyledeanml.github.io/RSSpad</link>
+      <link>https://kyledeanml.github.io/RSSpanel</link>
     </image>
     <itunes:category text="Music" />
     <itunes:explicit>false</itunes:explicit>
@@ -20,104 +20,104 @@
       <title>Hot House</title>
       <description>Daily track selection: Hot House</description>
       <pubDate>Wed, 11 Nov 2026 23:48:52 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Hot.House.mp4" length="10584817" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Hot.House.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Hot.House.mp4" length="10584817" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Hot.House.mp4</guid>
       <itunes:duration>00:04:18</itunes:duration>
     </item>
     <item>
       <title>Ragged Edge</title>
       <description>Daily track selection: Ragged Edge</description>
       <pubDate>Wed, 11 Nov 2026 20:24:28 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Ragged.Edge.mp4" length="135174582" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Ragged.Edge.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Ragged.Edge.mp4" length="135174582" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Ragged.Edge.mp4</guid>
       <itunes:duration>00:02:58</itunes:duration>
     </item>
     <item>
       <title>Blue Grunge</title>
       <description>Daily track selection: Blue Grunge</description>
       <pubDate>Wed, 11 Nov 2026 04:52:50 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Blue.Grunge.mp4" length="126521615" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Blue.Grunge.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Blue.Grunge.mp4" length="126521615" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Blue.Grunge.mp4</guid>
       <itunes:duration>00:02:41</itunes:duration>
     </item>
     <item>
       <title>24 Hours</title>
       <description>Daily track selection: 24 Hours</description>
       <pubDate>Wed, 11 Nov 2026 04:05:26 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/24.Hours.mp4" length="136852625" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/24.Hours.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/24.Hours.mp4" length="136852625" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/24.Hours.mp4</guid>
       <itunes:duration>00:03:00</itunes:duration>
     </item>
     <item>
       <title>Keep Goin</title>
       <description>Daily track selection: Keep Goin</description>
       <pubDate>Mon, 09 Nov 2026 20:08:39 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Keep.Goin.mp4" length="19155347" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Keep.Goin.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Keep.Goin.mp4" length="19155347" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Keep.Goin.mp4</guid>
       <itunes:duration>00:02:58</itunes:duration>
     </item>
     <item>
       <title>Long Gone</title>
       <description>Daily track selection: Long Gone</description>
       <pubDate>Mon, 09 Nov 2026 19:59:03 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Long.Gone.mp4" length="20416302" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Long.Gone.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Long.Gone.mp4" length="20416302" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Long.Gone.mp4</guid>
       <itunes:duration>00:03:00</itunes:duration>
     </item>
     <item>
       <title>Full Stack</title>
       <description>Daily track selection: Full Stack</description>
       <pubDate>Mon, 09 Nov 2026 10:52:47 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Full.Stack.mp4" length="14768598" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Full.Stack.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Full.Stack.mp4" length="14768598" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Full.Stack.mp4</guid>
       <itunes:duration>00:02:32</itunes:duration>
     </item>
     <item>
       <title>Gambling</title>
       <description>Daily track selection: Gambling</description>
       <pubDate>Mon, 09 Nov 2026 09:51:40 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Gambling.mp4" length="131449963" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Gambling.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Gambling.mp4" length="131449963" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Gambling.mp4</guid>
       <itunes:duration>00:03:00</itunes:duration>
     </item>
     <item>
       <title>Baby Mama</title>
       <description>Daily track selection: Baby Mama</description>
       <pubDate>Mon, 09 Nov 2026 09:10:30 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Baby.Mama.mp4" length="9250416" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Baby.Mama.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Baby.Mama.mp4" length="9250416" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Baby.Mama.mp4</guid>
       <itunes:duration>00:03:00</itunes:duration>
     </item>
     <item>
       <title>Black Ground</title>
       <description>Daily track selection: Black Ground</description>
       <pubDate>Sun, 08 Nov 2026 22:54:22 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Black.Ground.mp4" length="10427396" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Black.Ground.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Black.Ground.mp4" length="10427396" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Black.Ground.mp4</guid>
       <itunes:duration>00:01:01</itunes:duration>
     </item>
     <item>
       <title>Quit Yer Job</title>
       <description>Daily track selection: Quit Yer Job</description>
       <pubDate>Sun, 08 Nov 2026 22:43:46 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Quit.Yer.Job.mp4" length="12480312" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Quit.Yer.Job.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Quit.Yer.Job.mp4" length="12480312" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Quit.Yer.Job.mp4</guid>
       <itunes:duration>00:01:57</itunes:duration>
     </item>
     <item>
       <title>No Money (Whiskey Woman)</title>
       <description>Daily track selection: No Money (Whiskey Woman)</description>
       <pubDate>Sun, 08 Nov 2026 22:34:27 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/No%20Money%20%28Whiskey%20Woman%29.mp4" length="15598490" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/No%20Money%20%28Whiskey%20Woman%29.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/No%20Money%20%28Whiskey%20Woman%29.mp4" length="15598490" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/No%20Money%20%28Whiskey%20Woman%29.mp4</guid>
       <itunes:duration>00:01:57</itunes:duration>
     </item>
     <item>
       <title>Keep On Lookin</title>
       <description>Daily track selection: Keep On Lookin</description>
       <pubDate>Sun, 08 Nov 2026 22:13:35 GMT</pubDate>
-      <enclosure url="https://github.com/kyledeanml/RSSpad/releases/download/episodes/Keep.On.Lookin.mp4" length="12484742" type="video/mp4" />
-      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpad/releases/download/episodes/Keep.On.Lookin.mp4</guid>
+      <enclosure url="https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Keep.On.Lookin.mp4" length="12484742" type="video/mp4" />
+      <guid isPermaLink="false">https://github.com/kyledeanml/RSSpanel/releases/download/episodes/Keep.On.Lookin.mp4</guid>
       <itunes:duration>00:01:57</itunes:duration>
     </item>
   </channel>

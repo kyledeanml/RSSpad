@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-RSSpad - Podcast / RSS Feed Studio
+RSSpanel - Podcast / RSS Feed Studio
 Turns a folder of audio tracks into a podcast-compliant RSS feed, with live
 folder watching, WAV -> MP3 conversion, track playback, feed preview,
 a local LAN preview server, and one-click publishing.
-Shares the PythonPad dark neon aesthetic. Designed for Linux Mint Cinnamon.
+Shares the PythonPanel dark neon aesthetic. Designed for Linux Mint Cinnamon.
 """
 
 import os
@@ -52,10 +52,10 @@ class _QuietHandler(SimpleHTTPRequestHandler):
         pass
 
 
-class RSSpadWindow(Gtk.ApplicationWindow):
-    """Main application window for RSSpad."""
+class RSSpanelWindow(Gtk.ApplicationWindow):
+    """Main application window for RSSpanel."""
 
-    APP_NAME = "RSSpad"
+    APP_NAME = "RSSpanel"
     APP_VERSION = "1.0"
 
     def __init__(self, app, initial_folder=None):
@@ -74,7 +74,7 @@ class RSSpadWindow(Gtk.ApplicationWindow):
         self._playing_path = None
         self._last_generated = None
 
-        self.set_wmclass("rsspad", "RSSpad")
+        self.set_wmclass("rsspanel", "RSSpanel")
         self._set_icons()
 
         settings = Gtk.Settings.get_default()
@@ -108,10 +108,10 @@ class RSSpadWindow(Gtk.ApplicationWindow):
             self._update_status()
 
     # --------------------------------------------------------------------------
-    # Look & feel (shared PythonPad neon theme)
+    # Look & feel (shared PythonPanel neon theme)
     # --------------------------------------------------------------------------
     def _set_icons(self):
-        icon_path = os.path.join(APP_DIR, "rsspad.svg")
+        icon_path = os.path.join(APP_DIR, "rsspanel.svg")
         if not os.path.exists(icon_path):
             return
         try:
@@ -129,7 +129,7 @@ class RSSpadWindow(Gtk.ApplicationWindow):
             GtkSource.StyleSchemeManager.get_default().prepend_search_path(styles_dir)
 
         css = b"""
-        /* RSSpad Dark Neon Theme (PythonPad family) */
+        /* RSSpanel Dark Neon Theme (PythonPanel family) */
         window, dialog, .background {
             background-color: #0b0f19;
             color: #ffffff;
@@ -410,7 +410,7 @@ class RSSpadWindow(Gtk.ApplicationWindow):
         add("Open feed.xml in Browser", lambda: self._xdg_open(self._feed_path()))
         menu.append(Gtk.SeparatorMenuItem())
         add("Keyboard Shortcuts", self.show_shortcuts)
-        add("About RSSpad", self.show_about)
+        add("About RSSpanel", self.show_about)
         add("Quit (Ctrl+Q)", self.close)
 
         menu.show_all()
@@ -672,7 +672,7 @@ class RSSpadWindow(Gtk.ApplicationWindow):
         if lang:
             self.xml_buffer.set_language(lang)
         scheme_mgr = GtkSource.StyleSchemeManager.get_default()
-        scheme = scheme_mgr.get_scheme("pythonpad-neon") or scheme_mgr.get_scheme("oblivion")
+        scheme = scheme_mgr.get_scheme("pythonpanel-neon") or scheme_mgr.get_scheme("oblivion")
         if scheme:
             self.xml_buffer.set_style_scheme(scheme)
         view = GtkSource.View(buffer=self.xml_buffer)
@@ -1100,7 +1100,7 @@ class RSSpadWindow(Gtk.ApplicationWindow):
     def _init_player(self):
         if Gst is None:
             return
-        self._player = Gst.ElementFactory.make("playbin", "rsspad-player")
+        self._player = Gst.ElementFactory.make("playbin", "rsspanel-player")
         if self._player:
             bus = self._player.get_bus()
             bus.add_signal_watch()
@@ -1330,8 +1330,8 @@ class RSSpadWindow(Gtk.ApplicationWindow):
         about.set_program_name(self.APP_NAME)
         about.set_version(self.APP_VERSION)
         about.set_comments("Podcast & RSS feed studio for a folder of audio tracks.\n"
-                           "A member of the PythonPad family.")
-        about.set_logo_icon_name("rsspad")
+                           "A member of the PythonPanel family.")
+        about.set_logo_icon_name("rsspanel")
         about.run()
         about.destroy()
 
@@ -1386,7 +1386,7 @@ class RSSpadWindow(Gtk.ApplicationWindow):
     # Session --------------------------------------------------------------
     @staticmethod
     def _session_file():
-        d = os.path.expanduser("~/.config/rsspad")
+        d = os.path.expanduser("~/.config/rsspanel")
         os.makedirs(d, exist_ok=True)
         return os.path.join(d, "session.txt")
 
@@ -1424,26 +1424,26 @@ def shutil_which(cmd):
     return shutil.which(cmd)
 
 
-class RSSpadApp(Gtk.Application):
+class RSSpanelApp(Gtk.Application):
     def __init__(self):
-        super().__init__(application_id="org.linuxmint.rsspad",
+        super().__init__(application_id="org.linuxmint.rsspanel",
                          flags=Gio.ApplicationFlags.HANDLES_OPEN | Gio.ApplicationFlags.NON_UNIQUE)
-        GLib.set_application_name("RSSpad")
-        GLib.set_prgname("rsspad")
+        GLib.set_application_name("RSSpanel")
+        GLib.set_prgname("rsspanel")
 
     def do_activate(self):
-        RSSpadWindow(self).present()
+        RSSpanelWindow(self).present()
 
     def do_open(self, files, _n, _hint):
         for f in files:
             p = f.get_path()
             if p and os.path.isfile(p):
                 p = os.path.dirname(p)
-            RSSpadWindow(self, initial_folder=p).present()
+            RSSpanelWindow(self, initial_folder=p).present()
 
 
 def main():
-    app = RSSpadApp()
+    app = RSSpanelApp()
     return app.run(sys.argv)
 
 

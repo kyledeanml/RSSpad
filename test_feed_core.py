@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Unit tests for RSSpad's feed_core module."""
+"""Unit tests for RSSpanel's feed_core module."""
 
 import os
 import struct

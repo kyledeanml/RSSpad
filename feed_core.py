@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-RSSpad feed core - pure-Python logic for scanning an audio folder and
+RSSpanel feed core - pure-Python logic for scanning an audio folder and
 building a podcast-compliant RSS 2.0 feed. No GTK dependencies, so it can be
 tested and used from the command line:
 
@@ -26,7 +26,7 @@ try:
 except ImportError:  # pragma: no cover - depends on environment
     TinyTag = None
 
-CONFIG_NAME = ".rsspad.json"
+CONFIG_NAME = ".rsspanel.json"
 
 MIME_TYPES = {
     ".mp4": "video/mp4",
@@ -96,6 +96,10 @@ def load_config(folder: Path) -> Dict:
     cfg = json.loads(json.dumps(DEFAULT_CONFIG))
     cfg["title"] = folder.name
     path = folder / CONFIG_NAME
+    if not path.is_file():
+        legacy_path = folder / ".rsspad.json"
+        if legacy_path.is_file():
+            path = legacy_path
     if path.is_file():
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
@@ -228,7 +232,7 @@ def build_feed_xml(cfg: Dict, tracks: List[Track], folder: Optional[Path] = None
         f"    <language>{escape(cfg.get('language') or 'en-us')}</language>",
         f"    <description>{escape(cfg.get('description') or title)}</description>",
         f"    <lastBuildDate>{_rfc2822(datetime.now(timezone.utc).timestamp())}</lastBuildDate>",
-        "    <generator>RSSpad</generator>",
+        "    <generator>RSSpanel</generator>",
     ]
     if cfg.get("author"):
         x.append(f"    <itunes:author>{escape(cfg['author'])}</itunes:author>")
@@ -396,7 +400,7 @@ def build_index_html(cfg: Dict, tracks: List[Track], folder: Optional[Path] = No
   </header>
   {''.join(items)}
   <footer>
-    <p>Powered by RSSpad</p>
+    <p>Powered by RSSpanel</p>
   </footer>
 </main>
 </body>
@@ -438,7 +442,7 @@ def sync_github(folder: Path, log_fn=print) -> bool:
     Sync feed folder to GitHub:
     - Any media file > 95 MB (or all media if github_release_tag is set) is uploaded
       to a GitHub Release so it never hits GitHub's 100 MB git blob limit.
-    - Each uploaded asset's browser_download_url is saved into .rsspad.json track overrides.
+    - Each uploaded asset's browser_download_url is saved into .rsspanel.json track overrides.
     - Cover art is auto-generated from the first video if missing.
     - feed.xml and index.html are regenerated and committed + pushed to main.
     """
@@ -448,7 +452,7 @@ def sync_github(folder: Path, log_fn=print) -> bool:
     tag = (cfg.get("github_release_tag") or "episodes").strip()
 
     if not repo:
-        log_fn("No github_repo configured in .rsspad.json")
+        log_fn("No github_repo configured in .rsspanel.json")
         return False
 
     tracks = scan_folder(folder, cfg)
@@ -485,7 +489,7 @@ def sync_github(folder: Path, log_fn=print) -> bool:
             subprocess.run(
                 ["gh", "release", "create", tag, "--repo", repo,
                  "--title", f"{cfg.get('title') or 'Podcast'} Episodes",
-                 "--notes", "Automated media asset hosting managed by RSSpad."],
+                 "--notes", "Automated media asset hosting managed by RSSpanel."],
                 cwd=str(folder), check=False)
             chk = subprocess.run(
                 ["gh", "release", "view", tag, "--repo", repo, "--json", "assets"],
@@ -542,7 +546,7 @@ def sync_github(folder: Path, log_fn=print) -> bool:
     out_feed = write_feed(folder, cfg)
     log_fn(f"Generated {out_feed.name} and index.html")
 
-    # 4. Commit and push feed metadata & RSSpad code to GitHub
+    # 4. Commit and push feed metadata & RSSpanel code to GitHub
     for cmd in (
         ["git", "add", "-A"],
         ["git", "commit", "-m", f"Update feed ({len(tracks)} episodes)"],
