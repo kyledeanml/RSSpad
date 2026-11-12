@@ -1,0 +1,18 @@
+[Desktop Entry]
+Name=RSSpanel
+Comment=Podcast & RSS feed studio: turn a folder of video & audio tracks into a podcast feed
+GenericName=Podcast & RSS Feed Studio
+Exec=run.sh %F
+Icon=rsspanel
+Terminal=false
+Type=Application
+Categories=GTK;GNOME;AudioVideo;Audio;Video;Utility;
+MimeType=application/rss+xml;inode/directory;
+StartupNotify=true
+StartupWMClass=rsspanel
+Keywords=rss;podcast;feed;audio;video;mp4;music;mp3;wav;publish;github;
+Actions=NewWindow;
+
+[Desktop Action NewWindow]
+Name=Open a New Window
+Exec=run.sh

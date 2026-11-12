@@ -28,7 +28,7 @@ A fast, modern **Podcast & RSS 2.0 Feed Studio** with **Live Folder Watching**, 
 
 ---
 
-## 📖 User Manual & Quick Reference
+## User Manual & Quick Reference
 
 A complete 2-page visual reference manual crafted in the **PythonPanel dark-neon aesthetic** (`#0b0f19` / `#00f0ff`), covering core architecture, one-click GitHub publishing workflows, toolbar controls, workspace panels, keyboard shortcuts, `.rsspanel.json` schema, headless CLI automation, and Linux Mint Cinnamon desktop integration.
 
@@ -42,7 +42,7 @@ A complete 2-page visual reference manual crafted in the **PythonPanel dark-neon
 </p>
 
 <p align="center">
-  <b><a href="RSSpanel%20User%20Manual.pdf">📄 Open RSSpanel User Manual (PDF)</a></b>
+  <b><a href="RSSpanel%20User%20Manual.pdf">Open RSSpanel User Manual (PDF)</a></b>
 </p>
 
 ---
@@ -50,6 +50,8 @@ A complete 2-page visual reference manual crafted in the **PythonPanel dark-neon
 ## Installation
 
 ```bash
+git clone https://github.com/kyledeanml/RSSpanel.git
+cd RSSpanel
 ./install.sh
 ```
 

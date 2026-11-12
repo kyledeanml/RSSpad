@@ -403,10 +403,10 @@ def build_compact_manual(output_pdf, icon_svg):
     builder.add_2col_grid(
         [
             ("Panel Shortcut", "Right-click 'RSSpanel' in the Cinnamon Menu (Sound &amp; Video / Favorites) and select 'Add to panel'."),
-            ("Application Location", "Standard installation resides at /home/bluechile/rsspanel with executable linked to ~/.local/bin/rsspanel.")
+            ("Application Location", "Launcher symlinked to ~/.local/bin/rsspanel with full GTK source &amp; icon integration.")
         ],
         [
-            ("Desktop Launcher", "A verified desktop shortcut is maintained at ~/Desktop/rsspanel.desktop for instant double-click launch."),
+            ("Desktop Launcher", "A verified desktop entry is maintained at ~/.local/share/applications/rsspanel.desktop for Cinnamon Menu launch."),
             ("HiDPI Retina Icon", "Vector scalable SVG icon installed across 16px to 512px system icon themes.")
         ]
     )
@@ -415,6 +415,7 @@ def build_compact_manual(output_pdf, icon_svg):
     print(f"Generated compact manual: {output_pdf}")
 
 if __name__ == "__main__":
-    out_file = sys.argv[1] if len(sys.argv) > 1 else "/home/bluechile/Desktop/RSSpanel User Manual.pdf"
-    icon = sys.argv[2] if len(sys.argv) > 2 else "/home/bluechile/Videos/Daily Dean Blues Instrumentals/rsspanel.svg"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    out_file = sys.argv[1] if len(sys.argv) > 1 else os.path.join(base_dir, "RSSpanel User Manual.pdf")
+    icon = sys.argv[2] if len(sys.argv) > 2 else os.path.join(base_dir, "rsspanel.svg")
     build_compact_manual(out_file, icon)
